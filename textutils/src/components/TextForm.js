@@ -32,6 +32,12 @@ export default function TextForm(props) {
     const handleInputChange = (event) => {
         setText(event.target.value);
     };
+    const textToSpeech=()=>{
+        let msg = new SpeechSynthesisUtterance();
+        msg.text = text;
+        window.speechSynthesis.speak(msg);
+
+    }
 
     return (
         <>
@@ -56,6 +62,7 @@ export default function TextForm(props) {
                 <button className='btn btn-primary mx-1 btn-dark' onClick={handleClearClick}>Clear text</button>
                 <button className='btn btn-primary mx-1 btn-dark' onClick={handleFontColorClick}>Change font color</button>
                 <button className='btn btn-primary mx-1 btn-dark' onClick={handleInverseClick}>InverseKey</button>
+                <button className='btn btn-primary mx-1 btn-dark' onClick={textToSpeech}>Speech</button>
             </div>
             <div className='container my-2'>
                 <h1>Your Text Summary</h1>
