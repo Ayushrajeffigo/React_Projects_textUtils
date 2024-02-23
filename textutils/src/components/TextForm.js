@@ -21,6 +21,13 @@ export default function TextForm(props) {
     const handleFontColorClick = () => {
         setTextColor(("red"));
     };
+    const handleInverseClick=()=>{
+        let newText = "";
+        for(let i = text.length-1;i>=0;i--){
+            newText +=text[i]
+        }
+        setText(newText);
+    }
 
     const handleInputChange = (event) => {
         setText(event.target.value);
@@ -48,6 +55,7 @@ export default function TextForm(props) {
                 <button className='btn btn-primary mx-2 btn-dark' onClick={handleLeftClick}>To Lowercase</button>
                 <button className='btn btn-primary mx-1 btn-dark' onClick={handleClearClick}>Clear text</button>
                 <button className='btn btn-primary mx-1 btn-dark' onClick={handleFontColorClick}>Change font color</button>
+                <button className='btn btn-primary mx-1 btn-dark' onClick={handleInverseClick}>InverseKey</button>
             </div>
             <div className='container my-2'>
                 <h1>Your Text Summary</h1>
