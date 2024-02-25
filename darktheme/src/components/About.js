@@ -4,12 +4,12 @@ export default function About() {
     const[myStyle,setMyStyle] = useState({ 
         color:'white',
         backgroundColor:'black',
-        border:'2px solid white'
+        
         
     });
-    const[buttonText,setButtonText] = useState("");
+    const[buttonText,setButtonText] = useState("Modes");
     const toggleStyle=()=>{
-        if (myStyle.color=='white')
+        if (myStyle.color==='white')
         {
             setMyStyle({
                 color:'black',
