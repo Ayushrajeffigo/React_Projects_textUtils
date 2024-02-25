@@ -32,6 +32,21 @@ export default function TextForm(props) {
     const handleInputChange = (event) => {
         setText(event.target.value);
     };
+    const ClipboardAction=()=>{
+        var text = document.getElementById('myBox');
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+    const PasteAction = () => {
+        var text = document.getElementById('myBox');
+        navigator.clipboard.readText().then(clipboardText => {
+            text.value = clipboardText;
+        }).catch(err => {
+            console.error('Failed to read clipboard contents: ', err);
+        });
+    }
+    
+
     const textToSpeech=()=>{
         let msg = new SpeechSynthesisUtterance();
         msg.text = text;
@@ -63,6 +78,9 @@ export default function TextForm(props) {
                 <button className='btn btn-primary mx-1 btn-dark' onClick={handleFontColorClick}>Change font color</button>
                 <button className='btn btn-primary mx-1 btn-dark' onClick={handleInverseClick}>InverseKey</button>
                 <button className='btn btn-primary mx-1 btn-dark' onClick={textToSpeech}>Speech</button>
+                <button className='btn btn-primary mx-1 btn-dark' onClick={PasteAction}>Paste</button>
+
+                <button className='btn btn-primary mx-1 btn-dark' onClick={ClipboardAction}>Copy</button>
             </div>
             <div className='container my-2'>
                 <h1>Your Text Summary</h1>

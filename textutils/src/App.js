@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react'
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
+import About from './components/About'
 
 
 
@@ -12,6 +13,7 @@ function App() {
 
       <Navbar title="TeXtUtils" aboutText="About" link="https://www.google.com"/>
       <div className="container"> <TextForm heading="checking your text....."/></div>
+      <About/>
      
     </>
 
