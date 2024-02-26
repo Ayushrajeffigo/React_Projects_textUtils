@@ -15,6 +15,9 @@ function App() {
       type:type
 
     });
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
   }
   const toggleMode=()=>{
 
@@ -39,7 +42,7 @@ function App() {
       <div className='container'>
           <Alert alert={alert}/>
           <Navbar mode={mode} toggleMode={toggleMode} naming={text}/>
-          <About/>
+          <About />
 
         </div>
     </>
