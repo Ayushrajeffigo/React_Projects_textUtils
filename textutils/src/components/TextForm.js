@@ -36,6 +36,7 @@ export default function TextForm(props) {
     const ClipboardAction=()=>{
         var text = document.getElementById('myBox');
         text.select();
+        document.getSelection().removeAllRanges();
         navigator.clipboard.writeText(text.value);
     }
     const PasteAction = () => {
