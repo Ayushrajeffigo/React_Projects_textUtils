@@ -4,6 +4,7 @@ export default function TextForm(props) {
     const [text, setText] = useState("Enter the text");
     const[textColor,setTextColor] = useState("black");
 
+
     const handleClick = () => {
         alert("Upper case is Clicked");
         setText(text.toUpperCase());
@@ -14,7 +15,7 @@ export default function TextForm(props) {
         setText(text.toLowerCase());
     };
 
-    const handleClearClick = () => {
+    const handleClearClick = (message,type) => {
         setText("");
     };
 
@@ -72,24 +73,24 @@ export default function TextForm(props) {
                         >
                     </textarea>
                 </div>
-                <button className='btn btn-primary btn-dark' onClick={handleClick}>To Uppercase</button>
-                <button className='btn btn-primary mx-2 btn-dark' onClick={handleLeftClick}>To Lowercase</button>
-                <button className='btn btn-primary mx-1 btn-dark' onClick={handleClearClick}>Clear text</button>
-                <button className='btn btn-primary mx-1 btn-dark' onClick={handleFontColorClick}>Change font color</button>
-                <button className='btn btn-primary mx-1 btn-dark' onClick={handleInverseClick}>InverseKey</button>
-                <button className='btn btn-primary mx-1 btn-dark' onClick={textToSpeech}>Speech</button>
-                <button className='btn btn-primary mx-1 btn-dark' onClick={PasteAction}>Paste</button>
+                <button className='btn btn-primary mx-1 my-1 btn-dark' onClick={handleClick} disabled={text.length===0}>To Uppercase</button>
+                <button className='btn btn-primary mx-1 my-1 btn-dark' onClick={handleLeftClick} disabled={text.length===0}>To Lowercase</button>
+                <button className='btn btn-primary mx-1 my-1 btn-dark' onClick={handleClearClick} disabled={text.length===0}>Clear text</button>
+                <button className='btn btn-primary mx-1 my-1 btn-dark' onClick={handleFontColorClick} disabled={text.length===0}>Change font color</button>
+                <button className='btn btn-primary mx-1 my-1 btn-dark' onClick={handleInverseClick} disabled={text.length===0}>InverseKey</button>
+                <button className='btn btn-primary mx-1 my-1 btn-dark' onClick={textToSpeech} disabled={text.length===0}>Speech</button>
+                <button className='btn btn-primary mx-1 my-1 btn-dark' onClick={PasteAction} disabled={text.length===0}>Paste</button>
 
-                <button className='btn btn-primary mx-1 btn-dark' onClick={ClipboardAction}>Copy</button>
+                <button className='btn btn-primary mx-1 my-1 btn-dark' onClick={ClipboardAction} disabled={text.length===0}>Copy</button>
             </div>
             <div className='container my-2'>
                 <h1>Your Text Summary</h1>
                 <p>{text.split(" ").filter(Boolean).length} words and {text.length} characters</p>
-                <p>Time Taken to Read {text.split(" ").length * 0.008} minutes</p>
+                <p>Time Taken to Read {text.split(" ").filter(Boolean).length * 0.008} minutes</p>
             </div>
             <div className='container my-3'>
                 <h1>Preview</h1>
-                <p>{text.length>0?text:"enter the text in textbox to preview"}</p>
+                <p>{text.length>=0?text:"enter the text in textBox to preview"}</p>
             </div>
         </>
     );
